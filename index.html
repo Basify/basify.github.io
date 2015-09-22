@@ -3,10 +3,11 @@
 	<head>
 		<title>Basify</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	</head>
 
 	<style>
-
+        
 		body {
 			padding: 0;
 			margin: 0;
@@ -22,25 +23,25 @@
 		}
 
 		.number-item {
-			width: 33.33%
+			width: 33.3%;
 			height: 25%;
-			background-color: green;
-			color: white;
-			font-size: 3em;
+            color: #424242;
+			font-size: 2.5em;
 		}
 
 		.letter-item {
 			width: 16.66%;
 			height: 25%;
-			background-color: green;
-			color: white;
+            color: #424242;
 			font-size: 2.2em;
 		}
 
 		.container {
 		    width: 100%;
 		    text-align: center;
+            font-family: 'Roboto', sans-serif;
 		    position: absolute;
+            background-color: #eeeeee;
 		    padding-top: 5em;
 		    bottom: 0;
 		}
@@ -56,10 +57,15 @@
 		}
 
 		.delete-and-zero {
+            color: #424242;
+            font-size: 1.5em;
+            vertical-align: center;
+            font-family: 'Roboto', sans-serif;
 			/* Work in progress*/
 		}
 
 		#result {
+            font-family: 'Roboto', sans-serif;
 			font-size: 2.5em;
 		}
 	</style>
@@ -161,10 +167,11 @@
 				</table>
 			</div>
 			<div class="right delete-and-zero">
-				<p>Delete</p>
-				<br><br><br><br><br><br>
-				<p>0</p>
-			</div>
+                <td class="number-item">
+                    <img width="100%" src="ic_content_backspace.png"/>
+                    <p>0</p>
+                </td>
+            </div>
 		</div>
 	</body>
 </html>
