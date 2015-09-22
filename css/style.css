@@ -1,0 +1,53 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+p:hover {
+	cursor: default;
+}
+
+.header {
+	position: relative;
+	z-index: 1;
+}
+
+.number-item {
+    color: #424242;
+	font-size: 2.5em;
+}
+
+.letter-item {
+    color: #424242;
+	font-size: 2.2em;
+}
+
+.container {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+    background-color: #eeeeee;
+	bottom: 0;
+}
+
+.left {
+	float: left;
+	width: 90%;
+}
+
+.right {
+	float: right;
+	width: 10%;
+}
+
+.container-delete-and-zero {
+    color: #424242;
+    font-size: 2.5em;
+    vertical-align: center;
+    top: 0;
+}
+
+#result {
+	font-size: 2.5em;
+}
