@@ -4,6 +4,7 @@
 		<title>Basify</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href="css/ripple.css" rel='stylesheet' type='text/css'>
 	</head>
 
 	<style>
@@ -56,12 +57,11 @@
 		    width: 10%;
 		}
 
-		.delete-and-zero {
+		.container-delete-and-zero {
             color: #424242;
-            font-size: 1.5em;
+            font-size: 2.5em;
             vertical-align: center;
             font-family: 'Roboto', sans-serif;
-			/* Work in progress*/
 		}
 
 		#result {
@@ -80,51 +80,51 @@
 			<div class="left">
 				<table width="100%" cellpadding="0" cellspacing="0">
 					<tr>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>1</p>
 							</center>
 						</td>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>2</p>
 							</center>
 						</td>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>3</p>
 							</center>
 						</td>
 					</tr>
 					<tr>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>4</p>
 							</center>
 						</td>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>5</p>
 							</center>
 						</td>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>6</p>
 							</center>
 						</td>
 					</tr>
 					<tr>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>7</p>
 							</center>
 						</td>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>8</p>
 							</center>
 						</td>
-						<td class="number-item">
+						<td class="number-item ripple-effect">
 							<center>
 								<p>9</p>
 							</center>
@@ -133,32 +133,32 @@
 				</table>
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" >
 					<tr>
-						<td class="letter-item">
+						<td class="letter-item ripple-effect">
 							<center>
 								<p>A</p>
 							</center>
 						</td>
-						<td class="letter-item">
+						<td class="letter-item ripple-effect">
 							<center>
 								<p>B</p>
 							</center>
 						</td>
-						<td class="letter-item">
+						<td class="letter-item ripple-effect">
 							<center>
 								<p>C</p>
 							</center>
 						</td>				
-						<td class="letter-item">
+						<td class="letter-item ripple-effect">
 							<center>
 								<p>D</p>
 							</center>
 						</td>
-						<td class="letter-item">
+						<td class="letter-item ripple-effect">
 							<center>
 								<p>E</p>
 							</center>
 						</td>
-						<td class="letter-item">
+						<td class="letter-item ripple-effect">
 							<center>
 								<p>F</p>
 							</center>
@@ -166,12 +166,25 @@
 					</tr>
 				</table>
 			</div>
-			<div class="right delete-and-zero">
+			<div class="right container-delete-and-zero">
                 <td class="number-item">
-                    <img width="100%" src="ic_content_backspace.png"/>
-                    <p>0</p>
+                	<br>
+                	<div class="ripple-effect">
+                	    <br>
+                    	<img style="margin-left: 0.4em; margin-bottom: 0.75em;" width="50%" src="img/ic_content_backspace.png"/>
+                    	<br>
+                    </div>
+                    <br>
+                    <div class="ripple-effect">
+                    	<br style="height: 0.5em;">
+                    	<p style="margin-left: 0.4em; margin-bottom: 0.75em;">0</p>
+                    	<br style="height: 0.5em;">
+                    </div>
+                    <br>
                 </td>
             </div>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="js/ripple.js"></script>
 	</body>
 </html>
