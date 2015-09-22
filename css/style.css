@@ -48,6 +48,15 @@ p:hover {
     top: 0;
 }
 
-#result {
-	font-size: 2.5em;
+
+@media screen and (max-width: 800px) {
+    #result {
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (min-width: 800px) {
+    #result {
+		font-size: 2.5em;
+	}
 }
