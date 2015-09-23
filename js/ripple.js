@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	/**
 	* Ripple effect mechanism
 	*/
-	$('body').on( 'click', '.ripple-effect', function(e){
+	$('body').on( 'click', '.ripple-effect', function(e) {
 		// Ignore default behavior
 		e.preventDefault();
 
@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 
 		// Get ripple radius
 		var radius = the_dom.attr( 'data-ripple-wrap-radius' );
-		if( typeof radius == 'undefined' ){
+		if( typeof radius == 'undefined' ) {
 			var radius = 0;
 		}
 
@@ -84,19 +84,19 @@ jQuery(document).ready(function($) {
 		    'border-radius'             	: '50%',
 		    '-webkit-animation-name'		: 'ripple-animation',
 		    'animation-name'              	: 'ripple-animation',
-		    '-webkit-animation-duration'  	: '2s',
-		    'animation-duration'          	: '2s',
+		    '-webkit-animation-duration'  	: '0.3s',
+		    'animation-duration'          	: '0.3s',
 		    '-webkit-animation-fill-mode' 	: 'both',
 		    'animation-fill-mode'         	: 'both'  			
 		});
 		$('.ripple-effect-wrap:last').append( ripple );
 
-		// Remove rippling component after half second
+		// Remove rippling component
 		setTimeout( function(){
 			ripple_effect_wrap.fadeOut(function(){
 				$(this).remove();
 			});
-		}, 500 );	
+		}, 10 );	
 
 		// Get the href
 		var href = the_dom.attr('href');
