@@ -27,12 +27,12 @@ p:hover {
 
 .number-item {
   color: #424242;
-	font-size: 2.5em;
+	font-size: 2em;
 }
 
 .letter-item {
   color: #424242;
-	font-size: 2.2em;
+	font-size: 1.7em;
 }
 
 .container {
@@ -55,19 +55,33 @@ p:hover {
 
 .container-delete-and-zero {
     color: #424242;
-    font-size: 2.5em;
+    font-size: 2em;
     vertical-align: center;
     top: 0;
 }
 
-@media screen and (max-width: 800px) {
-    #result {
-		font-size: 1.5em;
-	}
+.arrow-up {
+	font-size: 3em;
+	transform: translateY(-20%);
+	color: #424242;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 700px) {
     #result {
-		font-size: 2.5em;
-	}
+			font-size: 1.6em;
+		}
+
+		#output {
+			font-size: 1em;
+		}
+}
+
+@media screen and (min-width: 701px) {
+    #result {
+			font-size: 4em;
+		}
+
+		#output {
+			font-size: 2em;
+		}
 }

@@ -9,6 +9,7 @@ var output         = $('#output');
 var lettersDiv     = $('#hex-letters');
 var lettersOverlay = $('#hex-letters-overlay');
 var conversion     = $('#conversion-type');
+var simplifyDiv    = $('#simplify');
 
 var conversionType = getParagraphTextById(conversion);
 
@@ -26,6 +27,14 @@ var debug = true;
 
 function getParagraphTextById(id) {
   return $(id)[0].innerHTML;
+}
+
+function isBinary(input) {
+  return input.search(/^[10]+$/) != -1;
+}
+
+function isOctal(input) {
+  return input.search(/^[01234567]+$/) != -1;
 }
 
 function getStringWithoutLastChar(string) {
@@ -70,30 +79,30 @@ function clearAll() {
 
 function calculateFromHex(input) {
   hex = parseInt(input).toString().toUpperCase();
-  dec = parseInt(input, 16).toString(10).toUpperCase();
-  oct = parseInt(input, 16).toString(8).toUpperCase();
-  bin = parseInt(input, 16).toString(2).toUpperCase();
+  dec = parseInt(input, 16).toString(10);
+  oct = parseInt(input, 16).toString(8);
+  bin = parseInt(input, 16).toString(2);
 }
 
 function calculateFromDec(input) {
   hex = parseInt(input, 10).toString(16).toUpperCase();
-  dec = parseInt(input, 10).toString().toUpperCase();
-  oct = parseInt(input, 10).toString(8).toUpperCase();
-  bin = parseInt(input, 10).toString(2).toUpperCase();
+  dec = parseInt(input, 10).toString();
+  oct = parseInt(input, 10).toString(8);
+  bin = parseInt(input, 10).toString(2);
 }
 
 function calculateFromOct(input) {
   hex = parseInt(input, 8).toString(16).toUpperCase();
-  dec = parseInt(input, 8).toString(10).toUpperCase();
-  oct = parseInt(input).toString().toUpperCase();
-  bin = parseInt(input, 8).toString().toUpperCase();
+  dec = parseInt(input, 8).toString(10);
+  oct = parseInt(input).toString();
+  bin = parseInt(input, 8).toString(2);
 }
 
 function calculateFromBin(input) {
   hex = parseInt(input, 2).toString(16).toUpperCase();
-  dec = parseInt(input, 2).toString(10).toUpperCase();
-  oct = parseInt(input, 2).toString(8).toUpperCase();
-  bin = parseInt(input).toString().toUpperCase();
+  dec = parseInt(input, 2).toString(10);
+  oct = parseInt(input, 2).toString(8);
+  bin = parseInt(input).toString();
 }
 
 function changeConversion(input) {
@@ -129,12 +138,28 @@ function calculate(mustChangeConversion) {
     }
   }
 
-  output.text((hex != NaN && conversionType != HEXADECIMAL ? ' | ' + 'HEX: ' + hex : '') +
-              (dec != NaN && conversionType != DECIMAL     ? ' | ' + 'DEC: ' + dec : '') +
-              (oct != NaN && conversionType != OCTAL       ? ' | ' + 'OCT: ' + hex : '') +
-              (bin != NaN && conversionType != BINARY      ? ' | ' + 'BIN: ' + hex : '') +
+  output.text((hex != 'NAN' && conversionType != HEXADECIMAL ? ' | ' + 'HEX: ' + hex : '') +
+              (dec != 'NAN' && conversionType != DECIMAL     ? ' | ' + 'DEC: ' + dec : '') +
+              (oct != 'NAN' && conversionType != OCTAL       ? ' | ' + 'OCT: ' + oct : '') +
+              (bin != 'NAN' && conversionType != BINARY      ? ' | ' + 'BIN: ' + bin : '') +
               ' | '
               );
+
+  if (input != '') {
+    if (conversionType == BINARY) {
+      if (!isBinary(input)) {
+        output.text('Input is not a binary value!');
+      }
+    }
+
+    if (conversionType == OCTAL) {
+      if (!isOctal(input)) {
+        output.text('Input is not an octal value!');
+      }
+    }
+  } else {
+    output.text('');
+  }
 
   conversion.text(conversionType);
 
@@ -142,8 +167,8 @@ function calculate(mustChangeConversion) {
     console.log('CONVERSION: ' + conversionType + ' | ' +
                 (hex != NaN && conversionType != HEXADECIMAL ? ' | ' + 'HEX: ' + hex : ' | --------') +
                 (dec != NaN && conversionType != DECIMAL     ? ' | ' + 'DEC: ' + dec : ' | --------') +
-                (oct != NaN && conversionType != OCTAL       ? ' | ' + 'OCT: ' + hex : ' | --------') +
-                (bin != NaN && conversionType != BINARY      ? ' | ' + 'BIN: ' + hex : ' | --------') +
+                (oct != NaN && conversionType != OCTAL       ? ' | ' + 'OCT: ' + oct : ' | --------') +
+                (bin != NaN && conversionType != BINARY      ? ' | ' + 'BIN: ' + bin : ' | --------') +
                 ' | ');
   }
 }
@@ -154,10 +179,19 @@ $(document).ready(function() {
 });
 
 lettersDiv.hide();
+simplifyDiv.hide();
 
 lettersOverlay.click(function() {
   $(this).hide();
   lettersDiv.show();
+  simplifyDiv.show();
+});
+
+simplifyDiv.click(function() {
+  $(this).hide();
+  lettersDiv.hide();
+  simplifyDiv.hide();
+  lettersOverlay.show();
 });
 
 numbers.each(function(index) {

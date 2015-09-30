@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/ripple.css" rel="stylesheet">
 		<link href="css/tipped.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	</head>
@@ -13,7 +12,6 @@
 		<div class="header">
 			<center>
 				<p id="result"></p>
-				<br>
 				<p id="output"></p>
 			</center>
 		</div>
@@ -21,51 +19,51 @@
 			<div class="left">
 				<table width="100%" cellpadding="0" cellspacing="0">
 					<tr>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>1</p>
 							</center>
 						</td>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>2</p>
 							</center>
 						</td>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>3</p>
 							</center>
 						</td>
 					</tr>
 					<tr>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>4</p>
 							</center>
 						</td>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>5</p>
 							</center>
 						</td>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>6</p>
 							</center>
 						</td>
 					</tr>
 					<tr>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>7</p>
 							</center>
 						</td>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>8</p>
 							</center>
 						</td>
-						<td class="number-item ripple-effect">
+						<td class="number-item">
 							<center>
 								<p>9</p>
 							</center>
@@ -74,37 +72,37 @@
 				</table>
 				<div id="hex-letters-overlay">
 					<center>
-						<i id="arrow-advanced" style="font-size: 3.5em; position: relative; transform: translateY(50%);" class="material-icons ripple-effect">&#xE316;</i>
+						<i id="arrow-advanced" class="material-icons arrow-up">&#xE5CE;</i>
 					</center>
 				</div>
 				<table id="hex-letters" width="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
-						<td class="letter-item ripple-effect">
+						<td class="letter-item">
 							<center>
 								<p>A</p>
 							</center>
 						</td>
-						<td class="letter-item ripple-effect">
+						<td class="letter-item">
 							<center>
 								<p>B</p>
 							</center>
 						</td>
-						<td class="letter-item ripple-effect">
+						<td class="letter-item">
 							<center>
 								<p>C</p>
 							</center>
 						</td>
-						<td class="letter-item ripple-effect">
+						<td class="letter-item">
 							<center>
 								<p>D</p>
 							</center>
 						</td>
-						<td class="letter-item ripple-effect">
+						<td class="letter-item">
 							<center>
 								<p>E</p>
 							</center>
 						</td>
-						<td class="letter-item ripple-effect">
+						<td class="letter-item">
 							<center>
 								<p>F</p>
 							</center>
@@ -114,25 +112,25 @@
 			</div>
 			<div class="right container-delete-and-zero">
       	<td class="number-item">
-        	<div id="cancel" class="ripple-effect">
-	        	<i style="font-size: 2.5em;" class="material-icons">undo</i>
+        	<div style="transform: translateY(100%); color: #424242;" id="cancel">
+	        	<i style="font-size: 1em;" class="material-icons">undo</i>
           </div>
           <br>
-					<div class="ripple-effect">
-						<center>
-							<p id="conversion-type">DEC</p>
-						</center>
+					<center>
+						<p style="font-size: 0.5em; transform: translateY(250%);" id="conversion-type">DEC</p>
+					</center>
+          <br>
+          <div style="transform: translateY(100%);" id="zero-item" >
+          	<p>0</p>
+          </div>
+					<div style="transform: translateY(175%); color: #424242;" id="simplify">
+						<i style="font-size: 1em;" class="material-icons">&#xE5CF;</i>
 					</div>
-          <br>
-          <div id="zero-item" class="ripple-effect">
-          	<p style="margin-left: 0.4em; margin-bottom: 0.75em;">0</p>
-          </div>
         <br>
       </td>
     </div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="js/ripple.js"></script>
 		<script src="js/tipped.js"></script>
 		<script src="js/init.js"></script>
 	</body>
