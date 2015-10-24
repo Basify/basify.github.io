@@ -13,6 +13,14 @@ var lettersOverlay = $('#hex-letters-overlay');
 var conversion = $('#conversion-type');
 var simplifyDiv = $('#simplify');
 
+var INPUT_NOT_BINARY = 'Input is not a binary value!';
+var INPUT_NOT_OCTAL = 'Input is not an octal value!';
+var REMOVING_LAST_NUMBER = 'Removing last number...';
+var ARROW_UP_CLICKED = 'Arrow up clicked!';
+var ARROW_DOWN_CLICKED = 'Arrow down clicked!';
+var REMOVED_ALL = 'Cleared all...';
+var CLICKED = 'Clicked: ';
+
 var HEXADECIMAL = 'HEX';
 var DECIMAL = 'DEC';
 var OCTAL = 'OCT';
@@ -72,6 +80,9 @@ function clearLastNumber() {
         result.text('');
         output.text('');
     }
+    if (debug) {
+        console.log(REMOVING_LAST_NUMBER);
+    }
 }
 
 // Remove every item inside an array
@@ -81,6 +92,9 @@ function clearAll() {
     }
     result.text('');
     output.text('');
+    if (debug) {
+        console.log(REMOVED_ALL);
+    }
 }
 
 // Calculate the values [base = 16]
@@ -150,23 +164,30 @@ function calculate(mustChangeConversion) {
         }
     }
 
-    output.text((hex != 'NAN' && conversionType != HEXADECIMAL ? ' | ' + 'HEX: ' + hex : '') +
+    var outputString = (hex != 'NAN' && conversionType != HEXADECIMAL ? ' | ' + 'HEX: ' + hex : '') +
         (dec != 'NAN' && conversionType != DECIMAL ? ' | ' + 'DEC: ' + dec : '') +
         (oct != 'NAN' && conversionType != OCTAL ? ' | ' + 'OCT: ' + oct : '') +
         (bin != 'NAN' && conversionType != BINARY ? ' | ' + 'BIN: ' + bin : '') +
-        ' | '
-    );
+        ' | ';
+        
+    output.text(outputString);
 
     if (input != '') {
         if (conversionType == BINARY) {
             if (!isBinary(input)) {
-                output.text('Input is not a binary value!');
+                output.text(INPUT_NOT_BINARY);
+                if (debug) {
+                    console.log(INPUT_NOT_BINARY);
+                }
             }
         }
 
         if (conversionType == OCTAL) {
             if (!isOctal(input)) {
-                output.text('Input is not an octal value!');
+                output.text(INPUT_NOT_OCTAL);
+                if (debug) {
+                    console.log(INPUT_NOT_OCTAL);
+                }
             }
         }
     } else {
@@ -176,12 +197,7 @@ function calculate(mustChangeConversion) {
     conversion.text(conversionType);
 
     if (debug) {
-        console.log('CONVERSION: ' + conversionType + ' | ' +
-            (hex != NaN && conversionType != HEXADECIMAL ? ' | ' + 'HEX: ' + hex : ' | --------') +
-            (dec != NaN && conversionType != DECIMAL ? ' | ' + 'DEC: ' + dec : ' | --------') +
-            (oct != NaN && conversionType != OCTAL ? ' | ' + 'OCT: ' + oct : ' | --------') +
-            (bin != NaN && conversionType != BINARY ? ' | ' + 'BIN: ' + bin : ' | --------') +
-            ' | ');
+        console.log(outputString);
     }
 }
 
@@ -200,6 +216,9 @@ lettersOverlay.click(function() {
     $(this).hide();
     lettersDiv.show();
     simplifyDiv.show();
+    if (debug) {
+        console.log(ARROW_UP_CLICKED);
+    }
 });
 
 // Handle arrow down click
@@ -208,25 +227,36 @@ simplifyDiv.click(function() {
     lettersDiv.hide();
     simplifyDiv.hide();
     lettersOverlay.show();
+    if (debug) {
+        console.log(ARROW_DOWN_CLICKED);
+    }
 });
 
 // Handle EACH number click
 numbers.each(function(index) {
     numbers.eq(index).click(function() {
-        arrayOfValues.push(numbers.eq(index).text());
+        var clickedValue = numbers.eq(index).text();
+        arrayOfValues.push(clickedValue);
         var string = result.text() + numbers.eq(index).text();
         result.text(string.replace(/\s+/g, ''));
         calculate(false);
+        if (debug) {
+            console.log(CLICKED + clickedValue);
+        }
     });
 });
 
 // Handle EACH letter click
 letters.each(function(index) {
     letters.eq(index).click(function() {
-        arrayOfValues.push(letters.eq(index).text());
+        var clickedValue = letters.eq(index).text();
+        arrayOfValues.push(clickedValue);
         var string = result.text() + letters.eq(index).text();
         result.text(string.replace(/\s+/g, ''));
         calculate(false);
+        if (debug) {
+            console.log(CLICKED + clickedValue);
+        }
     });
 });
 
@@ -236,6 +266,9 @@ zero.click(function() {
     var string = result.text() + zero.text();
     result.text(string.replace(/\s+/g, ''));
     calculate(false);
+    if (debug) {
+        console.log(CLICKED + '0');
+    }
 });
 
 // Handle conversion [BIN/OCT/DEC/HEX]
