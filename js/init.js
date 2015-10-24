@@ -19,7 +19,6 @@ var REMOVING_LAST_NUMBER = 'Removing last number...';
 var ARROW_UP_CLICKED = 'Arrow up clicked!';
 var ARROW_DOWN_CLICKED = 'Arrow down clicked!';
 var REMOVED_ALL = 'Cleared all...';
-var CLICKED = 'Clicked: ';
 
 var HEXADECIMAL = 'HEX';
 var DECIMAL = 'DEC';
@@ -240,9 +239,6 @@ numbers.each(function(index) {
         var string = result.text() + numbers.eq(index).text();
         result.text(string.replace(/\s+/g, ''));
         calculate(false);
-        if (debug) {
-            console.log(CLICKED + clickedValue.replace(/ /g,''));
-        }
     });
 });
 
@@ -254,9 +250,6 @@ letters.each(function(index) {
         var string = result.text() + letters.eq(index).text();
         result.text(string.replace(/\s+/g, ''));
         calculate(false);
-        if (debug) {
-            console.log(CLICKED + clickedValue.replace(/ /g,''));
-        }
     });
 });
 
@@ -266,9 +259,6 @@ zero.click(function() {
     var string = result.text() + zero.text();
     result.text(string.replace(/\s+/g, ''));
     calculate(false);
-    if (debug) {
-        console.log(CLICKED + '0');
-    }
 });
 
 // Handle conversion [BIN/OCT/DEC/HEX]
