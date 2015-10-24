@@ -241,7 +241,7 @@ numbers.each(function(index) {
         result.text(string.replace(/\s+/g, ''));
         calculate(false);
         if (debug) {
-            console.log(CLICKED + clickedValue);
+            console.log(CLICKED + clickedValue.replace(/ /g,''));
         }
     });
 });
@@ -255,7 +255,7 @@ letters.each(function(index) {
         result.text(string.replace(/\s+/g, ''));
         calculate(false);
         if (debug) {
-            console.log(CLICKED + clickedValue);
+            console.log(CLICKED + clickedValue.replace(/ /g,''));
         }
     });
 });
