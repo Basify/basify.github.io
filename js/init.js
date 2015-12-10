@@ -104,7 +104,7 @@ function calculateFromHex(input) {
     bin = parseInt(input, 16).toString(2);
 }
 
-// Calculate the values abase = 10]
+// Calculate the values base = 10]
 function calculateFromDec(input) {
     hex = parseInt(input, 10).toString(16).toUpperCase();
     dec = parseInt(input, 10).toString();
